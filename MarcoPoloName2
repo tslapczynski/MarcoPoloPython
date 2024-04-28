@@ -1,0 +1,74 @@
+# Step 1: Define the marco() function
+def marco(input_name):
+    if input_name == "Marco":
+        return "Polo!"
+    else:
+        return "No!"
+
+# Step 2: Call marco() function with "Marco" as input
+print(marco("Marco"))  # Step 3: Observe the output
+
+# Step 4: Call marco() function with your name as input
+print(marco("YourName"))  # Step 5: Observe the output changes
+
+# Step 6: Experiment with different inputs
+print(marco("Alice"))
+print(marco("Bob"))
+
+# Reflection Questions:
+# 1. The marco() function responds "Polo!" if the input is "Marco", otherwise it responds "No!".
+# 2. Input "Marco" will make it return "Polo!".
+# 3. Any input other than "Marco" will make it return "No!".
+# 4. You could modify the function to have a dictionary of predefined responses for different inputs.
+# 5. This mimics the branching logic of AWS Step Functions where different actions are taken based on input conditions.
+
+# Challenge Questions:
+
+# 1. Modified marco() function to return "Let's play!" if the input is your name.
+def marco(input_name):
+    if input_name == "Marco":
+        return "Polo!"
+    elif input_name == "YourName":  # Change "YourName" to your actual name
+        return "Let's play!"
+    else:
+        return "No!"
+
+print(marco("YourName"))  # Testing the modified function
+
+# 2. Create a new function called hello()
+def hello(name=None):
+    if name:
+        return f"Hello {name}!"
+    else:
+        return "Hello"
+
+print(hello())  # Testing with no input
+print(hello("Alice"))  # Testing with a name input
+
+# 3. Combine marco() and hello() functions
+def marco(input_name):
+    if input_name == "Marco":
+        return hello("Marco")
+    elif input_name == "YourName":  # Change "YourName" to your actual name
+        return "Let's play!"
+    else:
+        return "No!"
+
+print(marco("Marco"))  # Testing combined functions
+
+# 4. Write a new game() function
+def game(name, game_name):
+    return f"{name} wants to play {game_name}!"
+
+print(game("Alice", "Chess"))  # Testing game() function
+
+# 5. Call game() function within marco() function
+def marco(input_name):
+    if input_name == "Marco":
+        return game("Marco", "Marco Polo")
+    elif input_name == "YourName":  # Change "YourName" to your actual name
+        return "Let's play!"
+    else:
+        return "No!"
+
+print(marco("Marco"))  # Testing marco() with game() integration
