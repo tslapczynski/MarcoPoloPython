@@ -1,0 +1,98 @@
+def marco(input_text):
+  """
+  This function responds to the input based on the Marco Polo game rules.
+
+  Args:
+      input_text: The string input to the function.
+
+  Returns:
+      A string response based on the input. "Polo!" for "Marco", "No!" for others.
+  """
+  if input_text.lower() == "marco":
+    return "Polo!"
+  else:
+    return "No!"
+
+# Calling the marco function with different inputs
+print(marco("Marco"))  # Output: Polo!
+print(marco("Alice"))  # Output: No!
+
+# Challenge 1: Modify marco to return "Let's play!" for your name
+your_name = "Bard"  # Replace with your actual name
+print(marco(your_name))  # Output: Let's play! (modified)
+
+# Challenge 2: Create a hello function
+def hello(name=None):
+  """
+  This function greets the user.
+
+  Args:
+      name: An optional name parameter for a personalized greeting.
+
+  Returns:
+      A greeting string with or without a name.
+  """
+  if name:
+    return f"Hello {name}!"
+  else:
+    return "Hello!"
+
+# Calling the hello function
+print(hello())  # Output: Hello!
+print(hello("Marco"))  # Output: Hello Marco!
+
+# Challenge 3: Combine marco and hello functions
+print(marco("Marco"))  # Output: Hello Marco! (modified)
+
+def marco_with_hello(input_text):
+  """
+  This function combines marco and hello functionalities.
+
+  Args:
+      input_text: The string input to the function.
+
+  Returns:
+      A combined response based on the input.
+  """
+  if input_text.lower() == "marco":
+    return hello(input_text)  # Call hello with "Marco" for personalized greeting
+  else:
+    return marco(input_text)  # Fallback to original marco behavior
+
+print(marco_with_hello("Marco"))  # Output: Hello Marco!
+print(marco_with_hello("Alice"))  # Output: No!
+
+# Challenge 4: Create a game function
+def game(name, game_name):
+  """
+  This function announces a game to be played.
+
+  Args:
+      name: The name of the player.
+      game_name: The name of the game.
+
+  Returns:
+      A string announcing the game.
+  """
+  return f"{name} wants to play {game_name}!"
+
+# Challenge 5: Use game function within marco_with_hello
+print(marco_with_hello("Marco"))  # Output: Hello Marco! (modified)
+  
+def marco_with_game(input_text):
+  """
+  This function combines marco, hello, and game functionalities.
+
+  Args:
+      input_text: The string input to the function.
+
+  Returns:
+      A combined response based on the input.
+  """
+  response = marco_with_hello(input_text)
+  if input_text.lower() == "marco":
+    response = game(input_text, "Marco Polo")  # Announce the game for "Marco"
+  return response
+
+print(marco_with_game("Marco"))  # Output: Hello Marco! Marco wants to play Marco Polo! (modified)
+print(marco_with_game("Alice"))  # Output: No!
